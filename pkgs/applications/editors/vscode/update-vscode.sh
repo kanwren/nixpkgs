@@ -38,3 +38,25 @@ sed -i "s/aarch64-darwin = \".\{52\}\"/aarch64-darwin = \"${VSCODE_AARCH64_DARWI
 VSCODE_ARMV7L_LINUX_URL="https://update.code.visualstudio.com/${VSCODE_VER}/linux-armhf/stable"
 VSCODE_ARMV7L_LINUX_SHA256=$(nix-prefetch-url ${VSCODE_ARMV7L_LINUX_URL})
 sed -i "s/armv7l-linux = \".\{52\}\"/armv7l-linux = \"${VSCODE_ARMV7L_LINUX_SHA256}\"/" "$ROOT/vscode.nix"
+
+# insiders
+
+VSCODE_INSIDERS_X64_LINUX_URL="https://code.visualstudio.com/sha/download?build=insider&os=linux-x64"
+VSCODE_INSIDERS_X64_LINUX_SHA256=$(nix-prefetch-url ${VSCODE_INSIDERS_X64_LINUX_URL} --name vscode-insiders-linux-x64)
+sed -i "s/x86_64-linux_insiders = \".\{52\}\"/x86_64-linux_insiders = \"${VSCODE_INSIDERS_X64_LINUX_SHA256}\"/" "$ROOT/vscode.nix"
+
+VSCODE_INSIDERS_X64_DARWIN_URL="https://code.visualstudio.com/sha/download?build=insider&os=darwin"
+VSCODE_INSIDERS_X64_DARWIN_SHA256=$(nix-prefetch-url ${VSCODE_INSIDERS_X64_DARWIN_URL} --name vscode-insiders-darwin)
+sed -i "s/x86_64-darwin_insiders = \".\{52\}\"/x86_64-darwin_insiders = \"${VSCODE_INSIDERS_X64_DARWIN_SHA256}\"/" "$ROOT/vscode.nix"
+
+VSCODE_INSIDERS_AARCH64_LINUX_URL="https://code.visualstudio.com/sha/download?build=insider&os=linux-arm64"
+VSCODE_INSIDERS_AARCH64_LINUX_SHA256=$(nix-prefetch-url ${VSCODE_INSIDERS_AARCH64_LINUX_URL} --name vscode-insiders-linux-arm64)
+sed -i "s/aarch64-linux_insiders = \".\{52\}\"/aarch64-linux_insiders = \"${VSCODE_INSIDERS_AARCH64_LINUX_SHA256}\"/" "$ROOT/vscode.nix"
+
+VSCODE_INSIDERS_AARCH64_DARWIN_URL="https://code.visualstudio.com/sha/download?build=insider&os=darwin-arm64"
+VSCODE_INSIDERS_AARCH64_DARWIN_SHA256=$(nix-prefetch-url ${VSCODE_INSIDERS_AARCH64_DARWIN_URL} --name vscode-insiders-darwin-arm64)
+sed -i "s/aarch64-darwin_insiders = \".\{52\}\"/aarch64-darwin_insiders = \"${VSCODE_INSIDERS_AARCH64_DARWIN_SHA256}\"/" "$ROOT/vscode.nix"
+
+VSCODE_INSIDERS_ARMV7L_LINUX_URL="https://code.visualstudio.com/sha/download?build=insider&os=linux-armhf"
+VSCODE_INSIDERS_ARMV7L_LINUX_SHA256=$(nix-prefetch-url ${VSCODE_INSIDERS_ARMV7L_LINUX_URL} --name vscode-insiders-linux-armhf)
+sed -i "s/armv7l-linux_insiders = \".\{52\}\"/armv7l-linux_insiders = \"${VSCODE_INSIDERS_ARMV7L_LINUX_SHA256}\"/" "$ROOT/vscode.nix"
